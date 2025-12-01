@@ -23,13 +23,13 @@ class DE_TraderEntity : GenericEntity
 	SCR_EArsenalItemMode modes;
 	
 	[RplProp()]
-	array<EEditableEntityLabel> labels;	
+	ref array<EEditableEntityLabel> labels;	
 	
 	[RplProp()]
 	FactionKey factionKey;
 	
 	[RplProp()]
-	array<ResourceName> itemWhitelist;
+	ref array<ResourceName> itemWhitelist = {};
 	
 	void DE_TraderEntity(IEntitySource src, IEntity parent)
 	{

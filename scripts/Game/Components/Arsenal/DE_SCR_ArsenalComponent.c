@@ -33,21 +33,8 @@ modded class SCR_ArsenalComponent : ScriptComponent
 			if (!item)
 				continue;
 			
-			if (trader.itemWhitelist)
-			{
-				bool match = false;
-				foreach(ResourceName whitelistEntry : trader.itemWhitelist)
-				{
-					if (item.GetItemResourceName().Contains(whitelistEntry))
-					{
-						match = true;
-						break;
-					}
-				}
-				
-				if (!match)
-					continue;
-			}
+			if (trader.itemWhitelist.Count() > 0 && !trader.itemWhitelist.Contains(item.GetItemResourceName()))
+				continue;
 			
 			if (trader.types && !SCR_Enum.HasPartialFlag(item.GetItemType(), trader.types))
 				continue;

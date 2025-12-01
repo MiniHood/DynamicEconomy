@@ -1,0 +1,16 @@
+SCR_ChimeraCharacter : "{E024A74F8A4BC644}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Businessman_1.et" {
+ ID "520EC961A090B1EE"
+ components {
+  DE_TraderComponent "{66F68382BBCE97CA}" {
+   traderName "Starter Trader"
+   cardPayment 1
+   traderMargin 0.1
+   fallbackSupplyCost 0.001
+   itemWhitelist {
+    "{A81F501D3EF6F38E}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_US_01.et" "{0D9A5DCF89AE7AA9}Prefabs/Items/Medicine/MorphineInjection_01/MorphineInjection_01.et" "{3A421547BC29F679}Prefabs/Items/Equipment/Flashlights/Flashlight_MX991/Flashlight_MX991.et" "{1353C6EAD1DCFE43}Prefabs/Weapons/Handguns/M9/Handgun_M9.et" "{9C05543A503DB80E}Prefabs/Weapons/Magazines/Magazine_9x19_M9_15rnd_Ball.et" "{C0F7DD85A86B2900}Prefabs/Weapons/Handguns/PM/Handgun_PM.et" "{8B853CDD11BA916E}Prefabs/Weapons/Magazines/Magazine_9x18_PM_8rnd_Ball.et"
+   }
+  }
+ }
+ coords 640.287 0.162 3501.126
+ angles 0 115.338 0
+}

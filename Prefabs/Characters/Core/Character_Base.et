@@ -8,7 +8,7 @@ SCR_ChimeraCharacter {
      m_eResourceRights ALL
      m_eResourceType CASH
      m_eStorageType STORED
-     m_fResourceValueCurrent 1000
+     m_fResourceValueCurrent 0
      m_fResourceValueMax 9999999827968
     }
    }

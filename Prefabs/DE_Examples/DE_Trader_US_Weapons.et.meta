@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{F9C56BFD57E1D1AE}Prefabs/Props/Military/Arsenal/AmmoBoxes/US/AmmoBoxArsenal_Equipment_US.et"
+ Name "{394C560F503A5531}Prefabs/DE_Examples/DE_Trader_US_Weapons.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

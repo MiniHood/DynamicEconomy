@@ -87,12 +87,10 @@ DE_TraderEntity {
       ShowAllChildrens 1
      }
     }
-    CommonItemType "NONE"
     m_Size SLOT_1x1
     m_eQuickSlotSize SLOT_1x1
     m_SlotType SLOT_LOOT_STORAGE
     m_bDraggable 0
-    m_bVisible 0
     m_bStackable 0
     m_bRefundable 0
    }
@@ -112,8 +110,8 @@ DE_TraderEntity {
      ContextName "default"
      Position PointInfo "{66F20DA10F52CAB5}" {
      }
-     Radius 0.5
-     Height 0.5
+     Radius 1
+     Height 1
      LineOfSightCheck 1
     }
    }
@@ -128,7 +126,7 @@ DE_TraderEntity {
       m_sIconName "warCrimeGeneric"
      }
      ActionTitle "Trade"
-     VisibilityRange 0.5
+     VisibilityRange 1
     }
    }
    AllowCrossHierarchy 1

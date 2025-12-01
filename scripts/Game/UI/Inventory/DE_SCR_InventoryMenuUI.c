@@ -385,10 +385,12 @@ class DL_PlayerInfoWidgetData
 			bankAmount = playerContainer.GetResourceValue();
 		
 		SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(pc.GetMainEntity());
+		if (!char)
+			return;
+		
 		SCR_ResourceComponent characterResource = SCR_ResourceComponent.Cast(char.FindComponent(SCR_ResourceComponent));
 		if (characterResource)
 		{
-			// @TODO loop through wallet items in inventory and accumulate their value
 			SCR_ResourceContainer characterContainer = characterResource.GetContainer(EResourceType.CASH);
 			if (characterContainer)
 				walletAmount = characterContainer.GetResourceValue();

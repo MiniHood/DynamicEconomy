@@ -1,0 +1,9 @@
+SCR_ChimeraCharacter : "{A517C72CEF150898}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Businessman_2.et" {
+ ID "520EC961A090B1EE"
+ components {
+  DE_BankComponent "{66F68382B7675293}" {
+  }
+ }
+ coords 637.865 0.25 3495.201
+ angles 0 84.316 0
+}

@@ -1,6 +1,7 @@
 class DE_EconomySystem : WorldSystem
 {
 	float lastTickTime = 0;
+	ref ScriptCallQueue callQueue = new ScriptCallQueue();
 	
 	[Attribute("0.1", UIWidgets.Auto, desc: "Dynamic Economy system tick rate, only affects initialization of traders and banks.", category: "Dynamic Economy")]
 	float tickInterval;
@@ -70,6 +71,8 @@ class DE_EconomySystem : WorldSystem
 	
 	override void OnUpdate(ESystemPoint point)
 	{
+		callQueue.Tick(point);
+		
 		if (!Replication.IsServer()) // only calculate updates on server, changes are broadcast to clients
 			return;
 		
@@ -81,6 +84,7 @@ class DE_EconomySystem : WorldSystem
 		
 		if (!DL_LootSystem.GetInstance().lootDataReady)
 			return;
+		
 		
 		for (int i = 0; i < Math.Min(100, bankComponents.Count()); i++)
 		{

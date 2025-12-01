@@ -1,0 +1,12 @@
+SCR_ChimeraCharacter : "{E024A74F8A4BC644}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Businessman_1.et" {
+ ID "520EC961A090B1EE"
+ components {
+  DE_TraderComponent "{66F68382BBCE97CA}" {
+   traderName "Tailor"
+   factionKey "CIV"
+   types 556160
+  }
+ }
+ coords 638.323 0.242 3491.858
+ angles 0 34.585 0
+}

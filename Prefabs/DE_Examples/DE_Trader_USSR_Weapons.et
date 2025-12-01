@@ -1,0 +1,12 @@
+SCR_ChimeraCharacter : "{E024A74F8A4BC644}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Businessman_1.et" {
+ ID "520EC961A090B1EE"
+ components {
+  DE_TraderComponent "{66F68382BBCE97CA}" {
+   traderName "Soviet Weapon Dealer"
+   factionKey "USSR"
+   types 393534
+  }
+ }
+ coords 644.919 0.184 3494.663
+ angles 0 -19.227 0
+}

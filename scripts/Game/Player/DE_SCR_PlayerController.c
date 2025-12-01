@@ -34,6 +34,9 @@ modded class SCR_PlayerController : PlayerController
 		
 		// either player controller or character depending on bank or wallet
 		IEntity containerOwner = IEntity.Cast(Replication.FindItem(containerId));
+		if (!containerOwner) // wait for owner entity to be replicated (sometimes character takes a few frames)
+			return DE_EconomySystem.GetInstance().callQueue.CallLater(HandleBankDataChange, 1000, param1: containerId, param2: amount);
+		
 		SCR_ResourceComponent resource = SCR_ResourceComponent.Cast(containerOwner.FindComponent(SCR_ResourceComponent));
 		if (!resource)
 			return;

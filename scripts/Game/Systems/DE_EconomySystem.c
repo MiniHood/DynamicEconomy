@@ -111,10 +111,15 @@ class DE_EconomySystem : WorldSystem
 			if (!owner)
 				return;
 			
-			EntitySpawnParams params = new EntitySpawnParams();
-			params.Parent = owner;
-			DE_BankEntity bankEnt = DE_BankEntity.Cast(GetGame().SpawnEntityPrefabEx("{2EA890EED4EDE0C2}Prefabs/DE_BankEntity.et", true, null, params));
-			owner.AddChild(bankEnt, owner.GetAnimation().GetBoneIndex("Neck1"));
+			DE_BankEntity bankEnt = DE_BankEntity.Cast(GetGame().SpawnEntityPrefabEx("{2EA890EED4EDE0C3}Prefabs/DE_BankEntity.et", true));
+
+			int attachIdx = -1;
+			if (SCR_ChimeraCharacter.Cast(owner))
+				attachIdx = owner.GetAnimation().GetBoneIndex("Neck1");
+			else
+				attachIdx = owner.GetAnimation().GetBoneIndex("Bone_Keypad"); // if not a character, assume ATM
+			
+			owner.AddChild(bankEnt, attachIdx);
 			banks.Insert(bankEnt);
 			bankOwners.Insert(owner);
 			bankComponents.Remove(i);
@@ -138,7 +143,7 @@ class DE_EconomySystem : WorldSystem
 			
 			EntitySpawnParams params = new EntitySpawnParams();
 			params.Parent = owner;
-			DE_TraderEntity traderEnt = DE_TraderEntity.Cast(GetGame().SpawnEntityPrefabEx("{7037D4A3456F324A}Prefabs/DE_TraderEntity.et", true, null, params));
+			DE_TraderEntity traderEnt = DE_TraderEntity.Cast(GetGame().SpawnEntityPrefabEx("{7037D4A3456F324B}Prefabs/DE_TraderEntity.et", true, null, params));
 			owner.AddChild(traderEnt, owner.GetAnimation().GetBoneIndex("Neck1"));
 			traders.Insert(traderEnt);
 			traderOwners.Insert(owner);

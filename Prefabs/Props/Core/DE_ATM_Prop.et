@@ -1,0 +1,28 @@
+GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/DestructibleMultiPhase_Props_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  DE_BankComponent "{6704988146EAFF2B}" {
+   bankerName "ATM"
+  }
+  DL_LootSpawnComponent "{66B442257E6A201D}" {
+   Enabled 0
+  }
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{8B24E14374F6F2BE}Assets/ATM/ATM.xob"
+   WetnessAdder 1
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   Enabled 1
+   LayerPreset "Main"
+   Active Active
+   ResponseIndex "Normal"
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+   AutoHierarchy 1
+  }
+  Hierarchy "{67049881593035FB}" {
+  }
+ }
+ Flags 0 0x400
+}

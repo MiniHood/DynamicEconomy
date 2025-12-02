@@ -1,0 +1,56 @@
+MetaFileClass {
+ Name "{8B24E14374F6F2BE}Assets/ATM/ATM.xob"
+ Configurations {
+  FBXResourceClass PC {
+   ExportSkinning 1
+   MaterialAssigns {
+    MaterialAssignClass "{6704988A79A084F3}" {
+     SourceMaterial "Base"
+     AssignedMaterial "{0B7829BA2D1FFB8A}Assets/ATM/Data/Base.emat"
+    }
+    MaterialAssignClass "{6704988A79A0848C}" {
+     SourceMaterial "kEY"
+     AssignedMaterial "{BC90A359F9A82C92}Assets/ATM/Data/kEY.emat"
+    }
+   }
+   MeshParams {
+    MeshParam Base {
+    }
+    MeshParam kEY {
+    }
+   }
+   GeometryParams {
+    GeometryParam UBX_ATM {
+     LayerPreset "FireGeo"
+     SurfaceProperties {
+      "{536BF67B2052B869}material/metal.gamemat"
+     }
+     Mass 0
+     Margin 0
+    }
+   }
+   Common TXOCommonClass "{67049027183A968B}" : "{0877E7C4BB2B2C9A}Configs/System/ResourceTypes/PC/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass XBOX_ONE : PC {
+   Common TXOCommonClass "{67049027183A9818}" : "{9D5B6207F7628CE2}Configs/System/ResourceTypes/XBOX_ONE/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass XBOX_SERIES : PC {
+   Common TXOCommonClass "{67049027183A989C}" : "{DD9F02115C764647}Configs/System/ResourceTypes/XBOX_SERIES/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass PS4 : PC {
+   Common TXOCommonClass "{67049027183A9B64}" : "{53EC476BC921D99A}Configs/System/ResourceTypes/PS4/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass PS5 : PC {
+   Common TXOCommonClass "{67049027183A9B32}" : "{F62AA8E7B8EA9D26}Configs/System/ResourceTypes/PS5/MeshObjectCommon.conf" {
+   }
+  }
+  FBXResourceClass HEADLESS : PC {
+   Common TXOCommonClass "{67049027183A9B89}" : "{3A5B3356978039E8}Configs/System/ResourceTypes/HEADLESS/MeshObjectCommon.conf" {
+   }
+  }
+ }
+}

@@ -1,0 +1,23 @@
+MatPBRBasic {
+ Emissive 0 1 0.015 1
+ EmissiveLV 5.449
+ ApplyAlbedoToEmissive 1
+ AddWetness 1
+ SpecularMul 2.41
+ RoughnessScale 0.413
+ MetalnessScale 3.494
+ AOScale 1.545
+ DielectricReflectance 0.104
+ GlobalAOPower 0.953
+ EmissiveMap "{5A42211A265C7DB7}Assets/ATM/textures/Base_Emissive.edds"
+ BentNormalMode Vertex
+ BentNormalMap "{A1DE69A1CE9EE7A2}Assets/ATM/textures/Base_Roughness.edds"
+ BentNormalPower 4.682
+ BentNormalAOIntensity 0.866
+ BCRMap "{5B9CB2EB399D834A}Assets/ATM/textures/Base_BaseColor.edds"
+ NormalPower 0
+ NMOMap "{ADBBFB9D17D43D45}Assets/ATM/textures/Base_Normal.edds"
+ DetailNormalPower 0.913
+ DetailNormalMap "{A1DE69A1CE9EE7A2}Assets/ATM/textures/Base_Roughness.edds"
+ ParallaxShadowScale 0.89
+}

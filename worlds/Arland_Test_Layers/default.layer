@@ -79,6 +79,9 @@ $grp GenericEntity : "{C6EA723C0E2C52E7}Prefabs/Items/Core/DE_Item_Cash.et" {
   coords 642.459 0.199 3498.815
  }
 }
+DL_LootSpawn : "{E00CB9FFFC6C9339}Prefabs/DL_LootSpawn.et" {
+ coords 639.603 0.225 3496.124
+}
 $grp SCR_ChimeraCharacter : "{E024A74F8A4BC644}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Businessman_1.et" {
  {
   components {

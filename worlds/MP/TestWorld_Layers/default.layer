@@ -27,14 +27,50 @@ SCR_PlayerController DefaultPlayerControllerMP1 : "{225E51284CC95CFA}Prefabs/Cha
  }
  coords 130.659 1 158.002
 }
+GenericEntity : "{0FC1D6E9B592F75D}Prefabs/Props/Military/Arsenal/AmmoBoxes/US/AmmoBoxArsenal_Equipment_US.et" {
+ components {
+  SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
+   m_aConsumers {
+    SCR_ResourceConsumer "{5E5ABDF28A4FEC1F}" {
+    }
+   }
+   m_aGenerators {
+    SCR_ResourceGenerator "{5E5AD30768BBE3D1}" {
+    }
+   }
+   m_aDisabledResourceTypes {
+   }
+  }
+ }
+ coords 128.528 1 159.339
+}
 GenericEntity : "{1326C928CD27EC87}Prefabs/Compositions/Misc/SubCompositions/Storage/Slotted/Shelter_Arsenal_FIA_01.et" {
  coords 120.651 1 157.138
+}
+SCR_ChimeraCharacter : "{1C817825BB33CE32}Prefabs/Characters/DE_Examples/DE_Trader_CIV_Clothes.et" {
+ coords 137.77 1 159.2
+ angles 0 0 0
 }
 SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base.et" {
  coords 138.175 1 156.427
 }
+SCR_ChimeraCharacter : "{394C560F503A5531}Prefabs/Characters/DE_Examples/DE_Trader_US_Weapons.et" {
+ coords 140.485 1 157.534
+ angles 0 0 0
+}
+GenericEntity : "{44B3AC23A45CE5BE}Prefabs/Props/DynamicEconomy/DE_ATM.et" {
+ coords 129.351 1 162.784
+ angles 0 0 0
+}
 GenericEntity : "{658116C15069D447}Prefabs/Compositions/Misc/CustomEntities/InteractionPoints/ArsenalBox_FIA_Weapons_NoAffiliation.et" {
  coords 125.119 1 159.066
+ angles 0 0 0
+}
+GenericEntity : "{7DD1C2F10FEBCD4F}PrefabsEditable/Auto/Props/Furniture/E_Armchair_02.et" {
+ coords 133.014 1 160.352
+}
+SCR_ChimeraCharacter : "{B39C4B8E0885A29A}Prefabs/Characters/DE_Examples/DE_Trader_Starter.et" {
+ coords 139.139 1 158.558
  angles 0 0 0
 }
 $grp SCR_ChimeraCharacter : "{B3AB6D12D247DDB5}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Businessman_Randomized.et" {
@@ -341,7 +377,6 @@ $grp SCR_ChimeraCharacter : "{B3AB6D12D247DDB5}Prefabs/Characters/Factions/CIV/B
      }
     }
     coords 0.015 1.61 -0.028
-    traderName "Arms Dealer"
    }
   }
  }
@@ -495,8 +530,6 @@ $grp SCR_ChimeraCharacter : "{B3AB6D12D247DDB5}Prefabs/Characters/Factions/CIV/B
      }
     }
     coords 0.015 1.61 -0.028
-    traderName "Medic"
-    traderMargin 0.1
    }
   }
  }
@@ -650,8 +683,6 @@ $grp SCR_ChimeraCharacter : "{B3AB6D12D247DDB5}Prefabs/Characters/Factions/CIV/B
      }
     }
     coords 0.015 1.61 -0.028
-    traderName "Swag Merchant"
-    traderMargin 0.1
    }
   }
  }
@@ -770,28 +801,25 @@ $grp SCR_ChimeraCharacter : "{B3AB6D12D247DDB5}Prefabs/Characters/Factions/CIV/B
   }
  }
 }
+SCR_ChimeraCharacter : "{CBCC2535961B9147}Prefabs/Characters/DE_Examples/DE_Banker.et" {
+ coords 136.542 1 159.386
+ angles 0 0 0
+}
 GenericEntity : "{E5CB44A5FE1DEC03}Prefabs/Compositions/Misc/CustomEntities/InteractionPoints/ArsenalBox_FIA_Equipment_NoAffiliation.et" {
  coords 126.697 1 159.166
  angles 0 0 0
 }
-GenericEntity : "{F9C56BFD57E1D1AE}Prefabs/Props/Military/Arsenal/AmmoBoxes/US/AmmoBoxArsenal_Equipment_US.et" {
- components {
-  SCR_ResourceComponent "{5E5ABDF371AE8B21}" {
-   m_aConsumers {
-    SCR_ResourceConsumer "{5E5ABDF28A4FEC1F}" {
-    }
-   }
-   m_aGenerators {
-    SCR_ResourceGenerator "{5E5AD30768BBE3D1}" {
-    }
-   }
-   m_aDisabledResourceTypes {
-   }
-  }
- }
- coords 128.528 1 159.339
+GenericEntity : "{F481C91F6467D897}PrefabsEditable/Auto/Props/DynamicEconomy/E_DE_ATM.et" {
+ coords 129.273 1 164.281
+}
+GenericEntity : "{F77F7F847CC6455F}Prefabs/Props/Furniture/Bookshelf_01/Bookshelf_01.et" {
+ coords 126.503 1 156.103
 }
 GenericEntity : "{FA0E25CE35EE945F}Prefabs/Weapons/Rifles/AKS74U/Rifle_AKS74UN.et" {
  coords 129.743 1.249 159.551
  angles 0 0 77.462
+}
+SCR_ChimeraCharacter : "{FEC00FA145521381}Prefabs/Characters/DE_Examples/DE_Trader_USSR_Weapons.et" {
+ coords 141.394 1 158.102
+ angles 0 0 0
 }

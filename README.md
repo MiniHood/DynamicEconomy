@@ -1,4 +1,4 @@
-![DynamicEconomy](Assets/DE_splash.png "DynamicEconomy")
+![DynamicEconomy](Assets/de_splash.png "DynamicEconomy")
 
 # DynamicEconomy
 

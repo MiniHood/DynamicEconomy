@@ -1,0 +1,14 @@
+SCR_ChimeraCharacter : "{B3AB6D12D247DDB5}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Businessman_Randomized.et" {
+ ID "520EC961A090B1EE"
+ components {
+  DE_TraderComponent "{6708699D817EFCF0}" {
+   traderName "General Trader"
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "General Trader"
+   }
+  }
+ }
+ coords 135.439 1 162.003
+}

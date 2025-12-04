@@ -9,7 +9,7 @@ SCR_ChimeraCharacter : "{E024A74F8A4BC644}Prefabs/Characters/Factions/CIV/Busine
   SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
     Name "USSR Weapons Trader"
-    m_Image ""
+    m_Image "{E7649DFD37F503A1}UI/Textures/EditorPreviews/Characters/CIV/Character_CIV_Businessman_Randomized.edds"
     m_aAuthoredLabels +{
     }
     m_aAutoLabels {

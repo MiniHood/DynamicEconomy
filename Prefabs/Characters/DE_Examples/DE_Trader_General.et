@@ -7,6 +7,21 @@ SCR_ChimeraCharacter : "{B3AB6D12D247DDB5}Prefabs/Characters/Factions/CIV/Busine
   SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
    m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
     Name "General Trader"
+    Icon "{9164E45B9A237FE9}UI/Textures/Editor/EditableEntities/Characters/EditableEntity_Character_Unarmed.edds"
+   }
+   m_VariantData SCR_EditableEntityVariantData "{6106974AAD84694F}" {
+    m_bRandomizeDefaultVariant 1
+    m_aVariants {
+     SCR_EditableEntityVariant "{6106974AACA0498F}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{6106974AAC961171}" {
+      m_bEnabled 0
+     }
+     SCR_EditableEntityVariant "{6106974AACC2F3E7}" {
+      m_bEnabled 0
+     }
+    }
    }
   }
  }

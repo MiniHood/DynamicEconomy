@@ -30,7 +30,7 @@ modded class SCR_PlayerController : PlayerController
 	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
 	void HandleBankDataChange(RplId containerId, float amount)
 	{
-		PrintFormat("DE: HandleBankDataChange(%1, %2)", containerId, amount);
+		//PrintFormat("DE: HandleBankDataChange(%1, %2)", containerId, amount);
 		
 		// either player controller or character depending on bank or wallet
 		IEntity containerOwner = IEntity.Cast(Replication.FindItem(containerId));
@@ -44,12 +44,12 @@ modded class SCR_PlayerController : PlayerController
 		SCR_ResourceContainer container = resource.GetContainer(EResourceType.CASH);
 		container.SetResourceValue(amount);
 		HandlePlayerDataChange(0);
-		PrintFormat("DE: HandleBankDataChange - Update resource values: %1 value = %2", container, amount);
+		//PrintFormat("DE: HandleBankDataChange - Update resource values: %1 value = %2", container, amount);
 	}
 	
 	void RequestDeposit(RplId bankId, int playerId, float amount)
 	{
-		PrintFormat("DE: PC.RequestDeposit");
+		//PrintFormat("DE: PC.RequestDeposit");
 		Rpc(DoDeposit, bankId, playerId, amount);
 	}
 	
@@ -60,7 +60,7 @@ modded class SCR_PlayerController : PlayerController
 		if (!bank)
 			return;
 		
-		PrintFormat("DE: PC.DoDeposit");
+		//PrintFormat("DE: PC.DoDeposit");
 		bank.DoDeposit(playerId, amount);
 	}
 	

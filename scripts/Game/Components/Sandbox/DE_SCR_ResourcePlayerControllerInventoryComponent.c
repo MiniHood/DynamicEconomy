@@ -110,15 +110,29 @@ modded class SCR_ResourcePlayerControllerInventoryComponent : ScriptComponent
 		SCR_ResourceConsumer fundsConsumer = fundsResource.GetConsumer(EResourceGeneratorID.DEFAULT, EResourceType.CASH);
 		SCR_ResourceContainer fundsContainer = fundsResource.GetContainer(EResourceType.CASH);
 		
-		//if (!TryPerformResourceConsumption(fundsConsumer, resourceCost))
-		//	return;
-		fundsContainer.SetResourceValue(fundsContainer.GetResourceValue() - resourceCost);
+		if (!TryPerformResourceConsumption(fundsConsumer, resourceCost))
+			return;
+		//fundsContainer.SetResourceValue(fundsContainer.GetResourceValue() - resourceCost);
 		
 		pc.NotifyBankDataChange(Replication.FindId(fundsHolder), fundsContainer.GetResourceValue());
 		pc.NotifyPlayerDataChange(- resourceCost);
 
 		if (inventoryManagerComponent.TrySpawnPrefabToStorage(resourceNameItem, storageComponent, cb: new SCR_PrefabSpawnCallback(storageComponent)) && s_OnArsenalItemRequested)
 			GetOnArsenalItemRequested().Invoke(resourceComponent, resourceNameItem, pc, storageComponent, resourceType, - resourceCost);
+	}
+	
+	override bool TryPerformResourceConsumption(notnull SCR_ResourceActor actor, float resourceValue, bool ignoreOnEmptyBehavior = false)
+	{
+		DE_EconomySystem economySystem = DE_EconomySystem.GetInstance();
+		int changeValue = -resourceValue * economySystem.cashSupplyExchangeRate;
+		if (actor.GetComponent().GetContainer(EResourceType.CASH))
+			changeValue = resourceValue;
+		
+		bool result = super.TryPerformResourceConsumption(actor, resourceValue, ignoreOnEmptyBehavior);
+		if (result)
+			economySystem.CalculateRateChange(changeValue);
+		
+		return result;
 	}
 	
 	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
@@ -201,11 +215,27 @@ modded class SCR_ResourcePlayerControllerInventoryComponent : ScriptComponent
 		SCR_ResourceConsumer consumer = resourceComponent.GetConsumer(EResourceGeneratorID.DEFAULT, EResourceType.CASH);
 		resourceCost *= economySystem.cashSupplyExchangeRate;
 		resourceCost *= consumer.GetSellMultiplier();
-		generator.RequestGeneration(resourceCost, generator);
+		//generator.RequestGeneration(resourceCost, generator);
+		if (!TryPerformResourceGeneration(generator, resourceCost))
+			return;
 		
 		pc.NotifyBankDataChange(Replication.FindId(generator.GetOwner()), generator.GetComponent().GetContainer(EResourceType.CASH).GetResourceValue());
 		pc.NotifyPlayerDataChange(resourceCost);
 		
 		GetOnArsenalItemRefunded().Invoke(resourceComponent, resourceNameItem, GetOwner(), null, resourceType, resourceCost);
+	}
+	
+	override bool TryPerformResourceGeneration(notnull SCR_ResourceActor actor, float resourceValue)
+	{
+		DE_EconomySystem economySystem = DE_EconomySystem.GetInstance();
+		int changeValue = resourceValue * economySystem.cashSupplyExchangeRate;
+		if (actor.GetComponent().GetContainer(EResourceType.CASH))
+			changeValue = -resourceValue;
+		
+		bool result = super.TryPerformResourceGeneration(actor, resourceValue);
+		if (result)
+			economySystem.CalculateRateChange(changeValue);
+		
+		return result;
 	}
 }

@@ -12,7 +12,7 @@ class DE_EconomySystem : WorldSystem
 	[Attribute("0.25", UIWidgets.Auto, desc: "Default supply cost for items w/o one set, set to 0 to allow free items", category: "Dynamic Economy")]
 	float fallbackSupplyCost;
 	
-	[Attribute("50", UIWidgets.Auto, desc: "Cash:Supply exchange rate, how much cash 1 unit of supply costs", category: "Dynamic Economy")]
+	[RplProp(onRplName: "ExchangeRateChanged"), Attribute("50", UIWidgets.Auto, desc: "Cash:Supply exchange rate, how much cash 1 unit of supply costs", category: "Dynamic Economy")]
 	float cashSupplyExchangeRate;
 	
 	[Attribute("0", UIWidgets.Auto, desc: "Minimum randomized wallet value of AI characters", category: "Dynamic Economy")]
@@ -149,6 +149,30 @@ class DE_EconomySystem : WorldSystem
 			traderOwners.Insert(owner);
 			traderComponents.Remove(i);
 		}
+	}
+	
+	float CalculateRateChange(float resourceCost)
+	{
+		float rateChange = (resourceCost / cashSupplyExchangeRate) / (cashSupplyExchangeRate * cashSupplyExchangeRate) / 100;
+		cashSupplyExchangeRate += rateChange;
+		//PrintFormat("DE: CalculateRateChange(%1): %2 -> %3", resourceCost, rateChange, cashSupplyExchangeRate);
+		ExchangeRateChanged();
+		Replication.BumpMe();
+		return rateChange;
+	}
+	
+	void ExchangeRateChanged()
+	{
+		MenuManager menuManager = GetGame().GetMenuManager();
+		MenuBase menu = menuManager.GetTopMenu();
+		if (!menu)
+			return;
+		
+		SCR_InventoryMenuUI inventoryUI = SCR_InventoryMenuUI.Cast(menu);
+		if (!inventoryUI)
+			return;
+		
+		inventoryUI.RefreshLootUIListener();
 	}
 }
 

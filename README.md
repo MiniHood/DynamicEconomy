@@ -3,7 +3,9 @@
 # DynamicEconomy
 
 ## About
-Arma Reforger Conflict-compatible dynamic economy system with cash, banking and traders/shops.
+Arma Reforger Conflict-compatible dynamic economy system with cash, banking/ATMs and traders/shops.
+
+Originally created to implement banking and traders in my FFA PvPvE game mode [MercOut!](https://reforger.armaplatform.com/workshop/64C4F3E0169E5739-MercOut), released stand-alone for others to use in their own game modes or servers 🙂
 
 ## Setup
 See included `Arland_Test.ent` world or contents of `Prefabs/DE_Examples` for examples.

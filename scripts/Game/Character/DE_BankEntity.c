@@ -42,14 +42,12 @@ class DE_BankEntity : GenericEntity
 	
 	void RequestDeposit(int playerId, float amount)
 	{
-		PrintFormat("DE: RequestDeposit");
 		Rpc(DoDeposit, playerId, amount);
 	}
 	
 	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
 	void DoDeposit(int playerId, float amount)
 	{
-		PrintFormat("DE: DoDeposit");
 		// bank account lives on PC
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerManager().GetPlayerController(playerId));
 		SCR_ResourceComponent playerResource = SCR_ResourceComponent.Cast(pc.FindComponent(SCR_ResourceComponent));
@@ -72,7 +70,7 @@ class DE_BankEntity : GenericEntity
 		pc.NotifyBankDataChange(Replication.FindId(pc), playerContainer.GetResourceValue());
 		
 		if (amount > 0)
-			SCR_NotificationsComponent.SendToPlayer(playerId, DE_EconomySystem.GetInstance().depositNotification, amount);
+			SCR_NotificationsComponent.SendToPlayer(playerId, DE_EconomySystem.GetInstance().depositNotification, amount * 100);
 	}	
 	
 	void RequestWithdraw(int playerId, float amount)
@@ -95,7 +93,7 @@ class DE_BankEntity : GenericEntity
 		
 		if (playerContainer.GetResourceValue() < amount)
 		{
-			SCR_NotificationsComponent.SendToPlayer(playerId, DE_EconomySystem.GetInstance().insufficientNotification, playerContainer.GetResourceValue());
+			SCR_NotificationsComponent.SendToPlayer(playerId, DE_EconomySystem.GetInstance().insufficientNotification, playerContainer.GetResourceValue() * 100);
 			return;
 		}
 		
@@ -105,7 +103,7 @@ class DE_BankEntity : GenericEntity
 		pc.NotifyBankDataChange(Replication.FindId(char), charContainer.GetResourceValue());
 		
 		if (amount > 0)
-			SCR_NotificationsComponent.SendToPlayer(playerId, DE_EconomySystem.GetInstance().withdrawNotification, amount);
+			SCR_NotificationsComponent.SendToPlayer(playerId, DE_EconomySystem.GetInstance().withdrawNotification, amount * 100);
 	}
 	
 	void OnCharacterDeath(SCR_CharacterControllerComponent characterControllerComponent, IEntity killerEntity, Instigator killer)

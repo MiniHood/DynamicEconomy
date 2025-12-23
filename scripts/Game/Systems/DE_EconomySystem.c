@@ -18,13 +18,13 @@ class DE_EconomySystem : WorldSystem
 	[Attribute("0", UIWidgets.Auto, desc: "Minimum randomized wallet value of AI characters", category: "Dynamic Economy")]
 	float minAiWalletValue;
 	
-	[Attribute("50000", UIWidgets.Auto, desc: "Maximum randomized wallet value of AI characters", category: "Dynamic Economy")]
+	[Attribute("2500", UIWidgets.Auto, desc: "Maximum randomized wallet value of AI characters", category: "Dynamic Economy")]
 	float maxAiWalletValue;
 	
-	[Attribute("0.2", UIWidgets.Auto, desc: "% of max wallet value that can drop in non-jackpot wallets", category: "Dynamic Economy")]
-	float jackpotWalletThreshold;
+	[Attribute("10", UIWidgets.Auto, desc: "% of max wallet value that can drop in non-jackpot wallets", category: "Dynamic Economy")]
+	float jackpotWalletMultiplier;
 	
-	[Attribute("0.1", UIWidgets.Auto, desc: "Likelihood of AI dropping a jackpot wallet", category: "Dynamic Economy")]
+	[Attribute("0.05", UIWidgets.Auto, desc: "Likelihood of AI dropping a jackpot wallet", category: "Dynamic Economy")]
 	float jackpotWalletRate;
 	
 	[Attribute("{C6EA723C0E2C52E7}Prefabs/Items/Core/DE_Item_Cash.et", UIWidgets.Auto, desc: "Cash item prefab dropped on character death", uiwidget: UIWidgets.ResourcePickerThumbnail, params: "et", category: "Dynamic Economy")]
@@ -99,7 +99,6 @@ class DE_EconomySystem : WorldSystem
 		
 		if (!DL_LootSystem.GetInstance().lootDataReady)
 			return;
-		
 		
 		for (int i = 0; i < Math.Min(100, bankComponents.Count()); i++)
 		{

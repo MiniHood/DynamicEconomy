@@ -101,7 +101,7 @@ modded class SCR_ResourcePlayerControllerInventoryComponent : ScriptComponent
 				fundsHolder = pc;
 			else
 			{
-				SCR_NotificationsComponent.SendToPlayer(pc.GetPlayerId(), DE_EconomySystem.GetInstance().insufficientNotification, charConsumer.GetAggregatedResourceValue());
+				SCR_NotificationsComponent.SendToPlayer(pc.GetPlayerId(), DE_EconomySystem.GetInstance().insufficientNotification, charConsumer.GetAggregatedResourceValue() * 100);
 				return;
 			}
 		}

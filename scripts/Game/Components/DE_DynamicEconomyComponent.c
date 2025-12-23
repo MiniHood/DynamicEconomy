@@ -21,7 +21,7 @@ class DE_DynamicEconomyComponent : SCR_BaseGameModeComponent
 		if (!pc)
 			return;
 
-		PrintFormat("DE: Queuing player data update for %1", pc.GetPlayerId());
+		//PrintFormat("DE: Queuing player data update for %1", pc.GetPlayerId());
 		DE_EconomySystem.GetInstance().callQueue.CallLater(UpdatePlayerData, 1000, param1: pc, param2: 0);
 	}
 	
@@ -38,14 +38,14 @@ class DE_DynamicEconomyComponent : SCR_BaseGameModeComponent
 		// char not spawned/posessed yet, try again after 1sec up to 10 times
 		if (!char || !char.FindComponent(SCR_ResourceComponent))
 		{
-			PrintFormat("DE: Unable to find character for %1, attempts: %2", pc.GetPlayerId(), attempts);
+			//PrintFormat("DE: Unable to find character for %1, attempts: %2", pc.GetPlayerId(), attempts);
 			if (attempts < 10)
 				return DE_EconomySystem.GetInstance().callQueue.CallLater(UpdatePlayerData, 1000, param1: pc, param2: attempts + 1);
 			else
 				return;
 		}
 		
-		PrintFormat("DE: Found character for %1, pushing bank data...", pc.GetPlayerId());
+		//PrintFormat("DE: Found character for %1, pushing bank data...", pc.GetPlayerId());
 		SCR_ResourceComponent charResource = SCR_ResourceComponent.Cast(char.FindComponent(SCR_ResourceComponent));
 		SCR_ResourceContainer charContainer = charResource.GetContainer(EResourceType.CASH);
 
@@ -97,16 +97,8 @@ class DE_DynamicEconomyComponent : SCR_BaseGameModeComponent
 			return;
 		
 		float value = wallet.GetResourceValue();
-		
-		// randomize AI character wallet values
-		if (!EntityUtils.IsPlayer(char))
-		{
-			float maxValue = economySystem.maxAiWalletValue;
-			if (Math.RandomFloat(0, 1) > economySystem.jackpotWalletRate)
-				maxValue *= economySystem.jackpotWalletThreshold;
-			
-			value = Math.RandomFloat(economySystem.minAiWalletValue, maxValue);
-		}
+		if (value <= 0)
+			return;
 		
 		cash.value = value;
 		inv.TryInsertItem(cashEnt, EStoragePurpose.PURPOSE_ANY);

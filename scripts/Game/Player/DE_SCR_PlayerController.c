@@ -17,9 +17,9 @@ modded class SCR_PlayerController : PlayerController
 		}
 		
 		if (itemCost > 0)
-			SCR_NotificationsComponent.SendLocal(DE_EconomySystem.GetInstance().sellNotification, Math.AbsFloat(itemCost));
+			SCR_NotificationsComponent.SendLocal(DE_EconomySystem.GetInstance().sellNotification, Math.AbsFloat(itemCost) * 100);
 		else if (itemCost < 0)
-			SCR_NotificationsComponent.SendLocal(DE_EconomySystem.GetInstance().buyNotification, Math.AbsFloat(itemCost));
+			SCR_NotificationsComponent.SendLocal(DE_EconomySystem.GetInstance().buyNotification, Math.AbsFloat(itemCost) * 100);
 	}
 	
 	void NotifyBankDataChange(RplId containerId, float amount)

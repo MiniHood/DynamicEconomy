@@ -143,7 +143,17 @@ class DE_EconomySystem : WorldSystem
 			EntitySpawnParams params = new EntitySpawnParams();
 			params.Parent = owner;
 			DE_TraderEntity traderEnt = DE_TraderEntity.Cast(GetGame().SpawnEntityPrefabEx("{7037D4A3456F324B}Prefabs/DE_TraderEntity.et", true, null, params));
-			owner.AddChild(traderEnt, owner.GetAnimation().GetBoneIndex("Neck1"));
+			Animation anim = owner.GetAnimation();
+			if(!anim)
+				continue;
+			TNodeId neckanim = anim.GetBoneIndex("neckanim");
+			if(neckanim)
+				continue;
+			IEntity canOwnerSupportChild = owner.GetChildren();
+			if(canOwnerSupportChild == null)
+				continue;
+			
+			owner.AddChild(traderEnt, neckanim);
 			traders.Insert(traderEnt);
 			traderOwners.Insert(owner);
 			traderComponents.Remove(i);

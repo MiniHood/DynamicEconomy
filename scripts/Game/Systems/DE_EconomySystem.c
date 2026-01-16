@@ -146,7 +146,7 @@ class DE_EconomySystem : WorldSystem
 			Animation anim = owner.GetAnimation();
 			if(!anim)
 				continue;
-			TNodeId neckanim = anim.GetBoneIndex("neckanim");
+			TNodeId neckanim = anim.GetBoneIndex("Neck1");
 			if(neckanim)
 				continue;
 			IEntity canOwnerSupportChild = owner.GetChildren();

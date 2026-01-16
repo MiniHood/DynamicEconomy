@@ -149,9 +149,6 @@ class DE_EconomySystem : WorldSystem
 			TNodeId neckanim = anim.GetBoneIndex("Neck1");
 			if(neckanim == -1)
 				continue;
-			IEntity canOwnerSupportChild = owner.GetChildren();
-			if(canOwnerSupportChild == null)
-				continue;
 			
 			owner.AddChild(traderEnt, neckanim);
 			traders.Insert(traderEnt);
